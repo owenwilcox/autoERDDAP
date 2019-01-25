@@ -2,29 +2,30 @@ import os
 from subprocess import call
 
 def main():
-    print("Please select from one of the following options:")
-    print("pub: public     |    pri: private")
-    pubOrPri = input()
+    print "Please select from one of the following options:"
+    print "pub: public     |    pri: private" 
+    pubOrPri = raw_input()
 
     while not (pubOrPri=="pub" or pubOrPri=="pri"):
         print("error: invalid input. Please enter \"pri\" or \"pub\"")
-        answer=input()
+        answer=raw_input()
     if pubOrPri=="pub":
         printPublicDatasets()
         genPublic()        
     if pubOrPri=="pri":
-        print("not yet implemented :(")
+        print "not yet implemented :("
 
 
 
         
   
 def genPublic():
-    selection = input("Select from the above: ")
+    selection = raw_input("Select from the above: ")
+    print selection
     if int(selection) > 42 or int(selection) < 1:
         print("invalid input")
         exit()
-   # os.chdir("/usr/local/tomcat2/webapps/erddap/WEB-INF")
+    os.chdir("/usr/local/tomcat2/webapps/erddap/WEB-INF")
 
     command = "./GenerateDatasetsXML.sh"
     option1 = "EDDGridFromThreddsCatalog"
